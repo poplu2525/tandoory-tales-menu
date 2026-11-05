@@ -14,6 +14,7 @@ dialog{border:0;padding:0;border-radius:24px;max-height:min(92dvh,900px);width:m
 @media(min-width:640px){.hero{padding:45px 24px}.featuregrid{grid-template-columns:repeat(3,1fr)}.photo{height:185px}.dish{grid-template-columns:minmax(0,1fr) 86px 86px}.item-head{grid-template-columns:minmax(0,1fr) 86px 86px}.dish-name{font-size:16px}.price{font-size:16px}.category{margin:24px auto}}@media(max-width:380px){.dish,.item-head{grid-template-columns:minmax(0,1fr) 48px 53px;padding-left:12px;padding-right:12px;gap:5px}.price{font-size:12px}.dish-name{font-size:13px}.offer .small{text-align:center}.trust-item{font-size:10px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.feature{transition:none}}
 body.has-devotional-banner .hero .brand,body.has-devotional-banner .hero .lead{display:none}.devotional-banner{display:none;background:#0a2c22;text-align:center}.devotional-banner img{display:block;width:100%;max-width:1040px;max-height:510px;object-fit:contain;margin:auto}body.has-devotional-banner .devotional-banner{display:block}body.has-devotional-banner .hero{padding-top:15px}@media(min-width:640px){body.has-devotional-banner .hero{padding-bottom:25px}}
+.values-intro{margin:38px auto 14px;text-align:center}.values-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.value-step{border:1px solid #e2d2b5;background:#fffdf8;border-radius:16px;padding:18px 11px;text-align:center;box-shadow:0 3px 12px #18291b10}.value-step .value-icon{font-size:29px}.value-step h3{margin:9px 0 8px;font-size:15px;color:var(--forest)}.value-step p{font-size:12px;line-height:1.5;color:#5f6d62;margin:0}.story-card{margin:32px 0;border-radius:22px;overflow:hidden;background:radial-gradient(circle at 65% 0,#1b513d,var(--forest2));color:#fff5db;border:1px solid #bd9b5c;box-shadow:0 10px 22px #0b28132a}.story-card-inner{padding:26px 24px}.story-kicker{font-size:11px;color:#e3b970;letter-spacing:1.5px;font-weight:800;text-transform:uppercase}.story-card h2{font-family:Georgia,serif;color:#f2d28a;font-size:clamp(24px,5vw,33px);margin:8px 0 9px}.story-card p{font-size:14px;line-height:1.75;color:#e8e5d6;margin:13px 0}.story-more{border-top:1px solid #bd9b5c66;padding-top:10px;margin-top:14px}.story-more summary{cursor:pointer;color:#f6d18c;font-weight:850;padding:10px 0;list-style-position:inside}.story-more summary:focus-visible{outline:3px solid #e7aa43;outline-offset:3px}.story-highlight{color:#fce6ae!important;font-weight:800}.feedback-link{background:#e4ba6d;color:#183b2b;padding:13px 15px;min-height:44px;display:inline-flex;border-radius:12px;font-size:14px;font-weight:800;margin-top:8px;text-decoration:none}.feedback-link:focus-visible{outline:3px solid #fff;outline-offset:3px}@media(max-width:480px){.values-grid{grid-template-columns:1fr}.value-step{display:grid;grid-template-columns:38px minmax(0,1fr);text-align:left;gap:0 10px;padding:12px 16px}.value-step .value-icon{grid-row:span 2;font-size:26px}.value-step h3{margin:0 0 4px}.story-card-inner{padding:22px 17px}}
 </style>
 </head>
 <body>
@@ -30,6 +31,8 @@ body.has-devotional-banner .hero .brand,body.has-devotional-banner .hero .lead{d
 <section id="signature"><h2 class="section-title" id="signatureTitle"></h2><p class="section-sub" id="signatureSub"></p><div class="featuregrid" id="features"></div></section>
 <h2 class="section-title" id="fullTitle"></h2><p class="section-sub" id="fullSub"></p><div id="menu"></div>
 <div class="trust" id="trust"></div><div class="note" id="qualityNote"></div>
+<section id="our-way" aria-labelledby="wayTitle"><div class="values-intro"><h2 class="section-title" id="wayTitle"></h2><p class="section-sub" id="wayIntro"></p></div><div class="values-grid" id="waySteps"></div></section>
+<section id="our-story" aria-labelledby="storyTitle" class="story-card"><div class="story-card-inner"><div class="story-kicker" id="storyKicker"></div><h2 id="storyTitle"></h2><p id="storyIntro"></p><details class="story-more" id="storyDetails"><summary id="storySummary"></summary><p id="storyMiddle"></p><p id="storyQuality"></p><p id="storyFuture"></p><p class="story-highlight" id="storyThanks"></p></details><a id="feedbackLink" class="feedback-link" href="https://wa.me/917210080540" rel="noopener" target="_blank"></a></div></section>
 <section class="contact" id="contact"><h2 id="contactTitle"></h2><p id="location"></p><p id="delivery"></p><p id="pockets"></p><div class="buttons"><a class="callbtn" href="tel:+917210080540">☎ 72100 80540</a><a class="callbtn" href="tel:+919310044152">☎ 93100 44152</a><a class="callbtn" href="tel:+919177686011">☎ 91776 86011</a><a class="callbtn wa" href="https://wa.me/917210080540" id="whatsApp" target="_blank" rel="noopener"></a></div></section>
 <footer class="foot" id="foot"></footer>
 </main>
@@ -55,6 +58,18 @@ en:{
 blessing:'॥ JAI MATA DI • JAI SHREE RAM ॥',switch:'हिंदी में देखें',switchAria:'Switch language to Hindi',veg:'🌿 PURE VEG',subtitle:'CHAAP • TANDOORI MOMOS • ROLLS',
 lead:'Good ingredients first. Our dishes are marinated for flavour, given a tandoori finish and served hot — with the preparation happening right in front of you.',
 offer:'ANY CHAAP • FULL PLATE<br>RUNNING OFFER',roll:'🌯 All chaap flavours available as rolls • Add just ₹20 extra',
+wayTitle:'The Tandoory Tales Way',
+wayIntro:'Three simple ideas guide the food we put on your plate.',
+waySteps:[['🥬','Know the Ingredients','See the ingredients we use at our counter.'],['🔥','Watch the Preparation','Your order is seasoned, finished in a tandoori style and prepared in front of you.'],['🍽️','Served With Care','Enjoy it hot, and tell us what you loved or what we can improve.']],
+storyKicker:'The People Behind Your Plate',
+storyTitle:'A Small Counter. A Bigger Dream.',
+storyIntro:'We are working professionals with one thing in common: a genuine love for good food. Tandoory Tales began as a small idea—to create a place where we would happily eat ourselves.',
+storySummary:'Read our story',
+storyMiddle:'Instead of starting with a fancy restaurant or an endless menu, we chose to begin at a small counter. Our goal is to learn what customers truly enjoy, one honest plate and one conversation at a time.',
+storyQuality:'Our belief is simple: good ingredients first, memorable taste follows. You can see the ingredients at our counter and watch the preparation. We want to earn trust through what we serve, not just what we promise.',
+storyFuture:'We are just getting started. Every review, suggestion and returning customer helps shape what Tandoory Tales becomes next. We hope this little counter grows into a place you are proud to recommend.',
+storyThanks:'Thank you for being part of the beginning.',
+feedbackLabel:'Help us grow — share feedback',
 signature:'Our Signature Picks',signatureSub:'Start here. Tap any favourite to see what makes it special.',
 full:'Explore the Full Menu',fullSub:'Every dish has a flavour story. Tap to explore.',
 navSig:'★ Signatures',navContact:'Order',half:'Half',fullPrice:'Full',ask:'Ask for price',tap:'Tap for details ↗',
@@ -76,6 +91,18 @@ hi:{
 blessing:'॥ जय माता दी • जय श्री राम ॥',switch:'View in English',switchAria:'Switch language to English',veg:'🌿 शुद्ध शाकाहारी',subtitle:'चाप • तंदूरी मोमोज़ • रोल्स',
 lead:'अच्छी सामग्री से शुरुआत। स्वाद के लिए मैरिनेशन, तंदूरी अंदाज़ में रोस्टिंग और गरमा-गरम सर्विंग — तैयारी आपकी नज़रों के सामने।',
 offer:'कोई भी चाप • फुल प्लेट<br>स्पेशल ऑफर',roll:'🌯 हर चाप फ्लेवर रोल में भी उपलब्ध • सिर्फ ₹20 अतिरिक्त',
+wayTitle:'तंदूरी टेल्स का तरीका',
+wayIntro:'हम आपकी प्लेट में तीन बातों का ध्यान रखते हैं।',
+waySteps:[['🥬','सामग्री देखें','हमारे काउंटर पर इस्तेमाल होने वाली सामग्री देखिए।'],['🔥','तैयारी अपनी आँखों से देखें','आपके ऑर्डर को मसालों से तैयार कर तंदूरी अंदाज़ में फिनिश किया जाता है।'],['🍽️','प्यार से परोसा गया','गरमा-गरम खाइए और बताइए क्या अच्छा लगा, क्या बेहतर हो सकता है।']],
+storyKicker:'आपकी प्लेट के पीछे की कहानी',
+storyTitle:'छोटा सा काउंटर, बड़ा सा सपना।',
+storyIntro:'हम पेशे से वर्किंग प्रोफेशनल हैं और दिल से खाने के शौकीन। तंदूरी टेल्स की शुरुआत एक छोटी सी सोच से हुई—ऐसी जगह बनाने की जहाँ हम खुद खुशी से खाना चाहें।',
+storySummary:'हमारी पूरी कहानी पढ़ें',
+storyMiddle:'किसी बड़े रेस्टोरेंट या बहुत लंबे मेन्यू से शुरुआत करने के बजाय हमने एक छोटे काउंटर से शुरुआत की। हम हर प्लेट और हर बातचीत से जानना चाहते हैं कि लोगों को सच में क्या पसंद है।',
+storyQuality:'हमारा विश्वास सीधा है: पहले अच्छी सामग्री, फिर यादगार स्वाद। आप हमारे काउंटर पर सामग्री देख सकते हैं और खाना तैयार होते देख सकते हैं। हम सिर्फ बातों से नहीं, अपनी सर्विंग से भरोसा कमाना चाहते हैं।',
+storyFuture:'हमारा सफर अभी शुरू हुआ है। आपकी राय, सुझाव और दोबारा आना ही तंदूरी टेल्स का भविष्य बनाएगा। हमें उम्मीद है कि यह छोटा काउंटर एक दिन आपकी पसंदीदा जगह बनेगा।',
+storyThanks:'इस शुरुआत में हमारा साथ देने के लिए धन्यवाद।',
+feedbackLabel:'अपनी राय देकर हमें बेहतर बनाइए',
 signature:'हमारी खास पसंद',signatureSub:'शुरुआत यहाँ से करें। किसी डिश पर टैप करके उसकी खासियत जानें।',
 full:'हमारा पूरा मेन्यू',fullSub:'हर डिश का अपना स्वाद है। जानकारी के लिए टैप करें।',
 navSig:'★ खास डिश',navContact:'ऑर्डर',half:'हाफ',fullPrice:'फुल',ask:'कीमत पूछें',tap:'विवरण देखें ↗',
@@ -162,6 +189,12 @@ $('signatureTitle').textContent=t.signature;$('signatureSub').textContent=t.sign
 $('nav').innerHTML='<a class="chip" href="#signature">'+t.navSig+'</a>'+sections.map(s=>'<a class="chip" href="#'+s.id+'">'+t.cat[s.idx]+'</a>').join('')+'<a class="chip" href="#contact">'+t.navContact+'</a>';
 $('features').innerHTML=featured.map(name=>{const item=all.find(x=>x[0]===name);const n=all.indexOf(item);return '<button type="button" class="feature" data-item="'+n+'"><div class="photo"><div class="photo-fallback">✦</div>'+imageHtml(item)+'</div><div class="feature-text"><strong>'+escapeHtml(item[language==='hi'?1:0])+'</strong><small>'+escapeHtml(flavours[item[5]][language][0])+'</small></div></button>'}).join('');
 $('menu').innerHTML=sections.map(s=>'<section class="category" id="'+s.id+'"><div class="cathead"><span>'+t.cat[s.idx]+'</span><small>'+t.veg+' ✦</small></div><div class="item-head"><span></span><span>'+t.half+'</span><span>'+t.fullPrice+'</span></div>'+s.rows.map(item=>{const n=all.indexOf(item),idx=language==='hi'?1:0;return '<button type="button" class="dish" data-item="'+n+'"><span><span class="dish-name">'+escapeHtml(item[idx])+'</span><span class="dish-desc">'+escapeHtml(flavours[item[5]][language][0])+'</span><span class="tap">'+t.tap+'</span></span>'+(item[2]===null?'<span class="price" style="grid-column:2/4;font-size:12px">'+t.ask+'</span>':'<span class="price">₹'+item[2]+'</span><span class="price full">₹'+item[3]+'</span>')+'</button>'}).join('')+'</section>').join('');
+$('wayTitle').textContent=t.wayTitle;$('wayIntro').textContent=t.wayIntro;
+$('waySteps').innerHTML=t.waySteps.map(([ic,title,detail])=>'<article class="value-step"><span class="value-icon" aria-hidden="true">'+ic+'</span><h3>'+escapeHtml(title)+'</h3><p>'+escapeHtml(detail)+'</p></article>').join('');
+$('storyKicker').textContent=t.storyKicker;$('storyTitle').textContent=t.storyTitle;$('storyIntro').textContent=t.storyIntro;$('storySummary').textContent=t.storySummary;
+$('storyMiddle').textContent=t.storyMiddle;$('storyQuality').textContent=t.storyQuality;$('storyFuture').textContent=t.storyFuture;$('storyThanks').textContent=t.storyThanks;
+$('feedbackLink').textContent=t.feedbackLabel;
+$('feedbackLink').href='https://wa.me/917210080540?text='+encodeURIComponent(language==='hi'?'नमस्ते! तंदूरी टेल्स के लिए मेरा सुझाव: ':'Hello Tandoory Tales! My feedback: ');
 $('trust').innerHTML=t.trust.map(x=>'<div class="trust-item"><span>'+x[0]+'</span>'+x[1]+'</div>').join('');
 $('qualityNote').textContent=t.note;$('contactTitle').textContent=t.contact;$('location').textContent=t.location;$('delivery').textContent=t.delivery;$('pockets').textContent=t.pockets;$('whatsApp').textContent=t.wa;$('foot').textContent=t.footer;
 }
