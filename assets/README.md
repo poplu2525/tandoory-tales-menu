@@ -1,15 +1,21 @@
-# Tandoory Tales food & devotional images
+# Tandoory Tales — Website Image Assets
 
-The website now supports seven AI-generated illustrative image assets. To finish enabling the new photos, upload the seven **.webp** files from the provided ZIP into this `assets/` directory on GitHub.
+All seven images in this folder are **already uploaded to GitHub** and used by the live menu.
 
-- `malai.webp` — creamy chaap with dips
-- `achari.webp` — achari paneer tikka
-- `royal.webp` — visibly stuffed chaap
-- `momo.webp` — grilled tandoori paneer-cheese momos
-- `roll.webp` — extra-soft malai roll
-- `punjabi.webp` — Punjabi tandoori chaap
-- `devotional-banner.webp` — Shri Ram, Hanuman Ji and Mata Vaishno Devi header
+| File | Purpose |
+| --- | --- |
+| `malai.webp` | Thick, creamy Malai Chaap — supplied by the owner |
+| `achari.webp` | Smoky Paneer Achari Tikka — supplied by the owner |
+| `royal.webp` | Cheese-filled / visibly stuffed Royal Stuff Chaap illustration — supplied by the owner |
+| `momo.webp` | Charred paneer-cheese tandoori momos illustration |
+| `roll.webp` | Extra Soft Drip Malai Roll — supplied by the owner |
+| `punjabi.webp` | Punjabi Chaap — supplied by the owner |
+| `devotional-banner.webp` | Header with Shri Ram and Hanuman Ji on one side, Mata Vaishno Devi on the other |
 
-The existing website handles missing images by falling back to its earlier photos, so nothing breaks before upload. Once files are uploaded, the menu shows the improved images and devotional banner without a URL or QR code change.
+All images are illustrative/generated food photography rather than verified images of food prepared at the restaurant.
 
-These are AI-generated *illustrations*, not documentary photography of food cooked at your counter.
+The website uses the `upgradedPics` mapping in `index.html`; other menu items retain generic, illustrative fallback photography. For future changes, upload a new image under an existing filename to preserve all links.
+
+**Do not include factual claims about recipes or ingredient amounts based solely on AI-generated photos.** Confirm with the kitchen before changing descriptions.
+
+All images are compressed WebP for faster mobile loading.
