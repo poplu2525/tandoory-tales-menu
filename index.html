@@ -13,11 +13,12 @@
 dialog{border:0;padding:0;border-radius:24px;max-height:min(92dvh,900px);width:min(94vw,540px);box-shadow:0 28px 80px #0b140eb3;overflow:auto;background:#fffdf8;color:#24372b}dialog::backdrop{background:#091712b6;backdrop-filter:blur(4px)}dialog:not([open]){display:none}.modalphoto{height:230px;background:linear-gradient(135deg,#966133,#39201e);position:relative}.modalphoto img{width:100%;height:100%;object-fit:cover;display:block}.modalx{position:absolute;z-index:5;right:12px;top:12px;background:#fffef5;border:1px solid #e1cf9b;cursor:pointer;width:40px;height:40px;border-radius:50%;font-size:24px;line-height:1;box-shadow:0 2px 5px #0005}.modalbody{padding:23px}.modalbody h2{font-family:Georgia,serif;font-size:clamp(24px,5vw,31px);margin:0 0 9px;color:var(--forest)}.modalbody p{line-height:1.7;margin:10px 0;font-size:14px}.modalbody h3{font-size:14px;color:var(--maroon);letter-spacing:.4px;margin:18px 0 0}.modalmeta{font-size:13px;font-weight:750;color:#815530;background:#f5ead1;padding:10px 13px;border-radius:10px;margin:15px 0}.modalnote{font-size:11px!important;color:#79776c}.modalorder{display:block;margin-top:17px;background:var(--forest);border:0;color:#fff;padding:13px;border-radius:12px;text-align:center;font-weight:800}
 @media(min-width:640px){.hero{padding:45px 24px}.featuregrid{grid-template-columns:repeat(3,1fr)}.photo{height:185px}.dish{grid-template-columns:minmax(0,1fr) 86px 86px}.item-head{grid-template-columns:minmax(0,1fr) 86px 86px}.dish-name{font-size:16px}.price{font-size:16px}.category{margin:24px auto}}@media(max-width:380px){.dish,.item-head{grid-template-columns:minmax(0,1fr) 48px 53px;padding-left:12px;padding-right:12px;gap:5px}.price{font-size:12px}.dish-name{font-size:13px}.offer .small{text-align:center}.trust-item{font-size:10px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.feature{transition:none}}
+body.has-devotional-banner .hero .brand,body.has-devotional-banner .hero .lead{display:none}.devotional-banner{display:none;background:#0a2c22;text-align:center}.devotional-banner img{display:block;width:100%;max-width:1040px;max-height:510px;object-fit:contain;margin:auto}body.has-devotional-banner .devotional-banner{display:block}body.has-devotional-banner .hero{padding-top:15px}@media(min-width:640px){body.has-devotional-banner .hero{padding-bottom:25px}}
 </style>
 </head>
 <body>
 <div class="top"><div class="topinner"><span class="blessing" id="blessing">॥ JAI MATA DI • JAI SHREE RAM ॥</span><button class="lang" type="button" id="langSwitch" aria-label="Switch language to Hindi">हिंदी में देखें</button></div></div>
-<header class="hero">
+<div class="devotional-banner"><img id="devotionalImg" src="assets/devotional-banner.webp" alt="Lord Shri Ram and Hanuman Ji on the left, Mata Vaishno Devi on the right, Tandoory Tales restaurant banner"></div><header class="hero">
 <div class="veg" id="pureVeg">🌿 PURE VEG</div><div class="brand">Tandoory Tales</div>
 <div class="sub" id="subtitle">CHAAP • TANDOORI MOMOS • ROLLS</div>
 <p class="lead" id="lead"></p>
@@ -37,6 +38,7 @@ dialog{border:0;padding:0;border-radius:24px;max-height:min(92dvh,900px);width:m
 'use strict';
 // All prices from the owner's supplied board. Null = price not yet confirmed.
 // Photos are illustrative licensed food images, not photos of our own prepared dishes.
+const upgradedPics={malai:'assets/malai.webp',achari:'assets/achari.webp',royal:'assets/royal.webp',momo:'assets/momo.webp',roll:'assets/roll.webp',punjabi:'assets/punjabi.webp'};
 const pics={
 malai:'https://images.pexels.com/photos/20395267/pexels-photo-20395267.jpeg?auto=compress&cs=tinysrgb&w=1000',
 tikka:'https://images.pexels.com/photos/3928854/pexels-photo-3928854.png?auto=compress&cs=tinysrgb&w=1000',
@@ -120,11 +122,11 @@ const sections=[
 ['Pudina Chaap','पुदीना चाप',130,220,'chaap','pudina','paneer'],
 ['Lemon Chaap','लेमन चाप',130,220,'chaap','lemon','tikka'],
 ['Diet Chaap','डाइट चाप',120,200,'chaap','diet','tikka'],
-['Punjabi Chaap','पंजाबी चाप',null,null,'chaap','punjabi','spicy']]},
+['Punjabi Chaap','पंजाबी चाप',null,null,'chaap','punjabi','punjabi']]},
 {id:'paneer',idx:1,rows:[
 ['Paneer Tikka','पनीर टिक्का',170,260,'paneer','classic','tikka'],
 ['Paneer Malai Tikka','पनीर मलाई टिक्का',190,280,'paneer','malai','malai'],
-['Paneer Achari Tikka','पनीर अचारी टिक्का',170,260,'paneer','achari','paneer'],
+['Paneer Achari Tikka','पनीर अचारी टिक्का',170,260,'paneer','achari','achari'],
 ['Paneer Pudina Tikka','पनीर पुदीना टिक्का',170,260,'paneer','pudina','paneer'],
 ['Mushroom Tikka','मशरूम टिक्का',150,230,'mushroom','classic','mushroom'],
 ['Mushroom Malai Tikka','मशरूम मलाई टिक्का',160,240,'mushroom','malai','mushroom'],
@@ -135,22 +137,23 @@ const sections=[
 ['Veg Malai Kabab','वेज मलाई कबाब',160,240,'kabab','malai','kabab'],
 ['Veg Pudina Kabab','वेज पुदीना कबाब',150,230,'kabab','pudina','kabab'],
 ['Veg Achari Kabab','वेज अचारी कबाब',150,230,'kabab','achari','kabab']]},
-{id:'momos',idx:3,rows:[['Paneer Cheese Momo','पनीर चीज़ मोमो',130,210,'momo','cheesemomo','cheese']]},
+{id:'momos',idx:3,rows:[['Paneer Cheese Momo','पनीर चीज़ मोमो',130,210,'momo','cheesemomo','momo']]},
 {id:'loaded',idx:4,rows:[
-['Royal Stuff Chaap','रॉयल स्टफ चाप',180,270,'chaap','royal','spicy'],
+['Royal Stuff Chaap','रॉयल स्टफ चाप',180,270,'chaap','royal','royal'],
 ['Extra Soft Drip Malai Roll','एक्स्ट्रा सॉफ्ट ड्रिप मलाई रोल',200,300,'roll','driproll','roll']]}
 ];
 const all=sections.flatMap(s=>s.rows);
 const featured=['Classic Malai Chaap','Paneer Achari Tikka','Royal Stuff Chaap','Paneer Cheese Momo','Extra Soft Drip Malai Roll','Punjabi Chaap'];
 const $=id=>document.getElementById(id);
-function photo(key){return pics[key]||pics.tikka}
+function photo(key){return upgradedPics[key]||pics[key]||pics.tikka}
+function fallbackPhoto(key){return pics[key]||pics.tikka}
 function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 let language='en';
 try{if(localStorage.getItem('tandoory-language')==='hi')language='hi'}catch(e){}
 let lastFocus=null;
 const dialog=$('dishDialog');
 function priceText(item,t){return item[2]===null?t.ask:t.half+' ₹'+item[2]+'  ·  '+t.fullPrice+' ₹'+item[3]}
-function imageHtml(item){return '<img loading="lazy" decoding="async" src="'+photo(item[6])+'" alt="'+escapeHtml(item[language==='hi'?1:0])+'" onerror="this.style.display=\'none\'">'}
+function imageHtml(item){return '<img loading="lazy" decoding="async" src="'+photo(item[6])+'" alt="'+escapeHtml(item[language==='hi'?1:0])+'" onerror="this.onerror=null;this.src=\''+fallbackPhoto(item[6])+'\'">'}
 function render(){
 const t=i18n[language];document.documentElement.lang=language;
 $('blessing').textContent=t.blessing;$('langSwitch').textContent=t.switch;$('langSwitch').setAttribute('aria-label',t.switchAria);
@@ -166,7 +169,7 @@ function openItem(n){
 const item=all[n];if(!item)return;lastFocus=document.activeElement;const t=i18n[language],profile=flavours[item[5]][language];
 $('modalTitle').textContent=item[language==='hi'?1:0];$('modalPrices').textContent=priceText(item,t);
 $('modalShort').textContent=profile[0];$('modalHowHeading').textContent=t.how;$('modalHow').textContent=t.base[item[4]]+' '+profile[1];$('photoNote').textContent=t.images;
-$('modalImg').style.display='block';$('modalImg').src=photo(item[6]);$('modalImg').alt=item[language==='hi'?1:0]+' — '+t.images;
+$('modalImg').style.display='block';$('modalImg').src=photo(item[6]);$('modalImg').dataset.fallback=fallbackPhoto(item[6]);$('modalImg').alt=item[language==='hi'?1:0]+' — '+t.images;
 $('modalOrder').textContent=t.order;
 $('modalOrder').href='https://wa.me/917210080540?text='+encodeURIComponent((language==='hi'?'नमस्ते, मुझे ':'Hi! I would like to ask about ')+item[language==='hi'?1:0]+'.');
 if(!dialog.open)dialog.showModal();$('closeModal').focus();
@@ -176,7 +179,9 @@ document.addEventListener('click',ev=>{const btn=ev.target.closest('[data-item]'
 $('closeModal').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('click',ev=>{if(ev.target===dialog)dialog.close()});
 dialog.addEventListener('close',()=>{if(lastFocus&&typeof lastFocus.focus==='function')lastFocus.focus()});
-$('modalImg').addEventListener('error',function(){this.style.display='none'});
+$('modalImg').addEventListener('error',function(){if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback}else{this.style.display='none'}});
+$('devotionalImg').addEventListener('load',()=>document.body.classList.add('has-devotional-banner'));$('devotionalImg').addEventListener('error',()=>document.body.classList.remove('has-devotional-banner'));
+if($('devotionalImg').complete&&$('devotionalImg').naturalWidth)document.body.classList.add('has-devotional-banner');
 render();
 </script>
 </body></html>
